@@ -41,6 +41,8 @@ telescope.setup({
 	},
 })
 
+require("telescope").load_extension("file_browser")
+
 -- Keymaps
 vim.keymap.set("n", "<leader>pf", function()
 	builtin.find_files({
@@ -49,16 +51,18 @@ vim.keymap.set("n", "<leader>pf", function()
 		file_ignore_patterns = {
 			"node_modules",
 			".git",
+			"docs",
 			".next",
 		},
 	})
 end)
 vim.keymap.set("n", "<leader>pd", builtin.diagnostics, {})
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+vim.keymap.set("n", "<leader>pl", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>ps", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set("n", "pe", function()
+vim.keymap.set("n", "<leader>pv", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),

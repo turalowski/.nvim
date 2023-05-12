@@ -1,5 +1,3 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 -- General vim.keymaps
 --
 -- Copy file name and line number properly
